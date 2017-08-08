@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
 	<title>Time Tracker</title>
   <!--<link rel="stylesheet" type="text/css" href="assets/css/reset.css"> -->
-	<link rel="stylesheet" href="style.css">
+
 	<!-- Latest compiled and minified CSS -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
@@ -12,7 +12,7 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
 
 	<script src="https://code.jquery.com/jquery.js"></script>
-
+   <script src="https://www.gstatic.com/firebasejs/4.2.0/firebase.js"></script>
 	<style>
 	.jumbotron{
 		color:#fff;
@@ -58,36 +58,36 @@
 	    	<h3 class="panel-title">Add Employee</h3>
 	  	</div>
   		<div class="panel-body">
-  			<label for="basic-url">Employee Name</label>
+  			<label for="employeeName">Employee Name</label>
 				<div class="input-group">
 				  <span class="input-group-addon" id="basic-addon3"> </span>
-				  <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3">
+				  <input type="text" class="form-control" id="employeeName" aria-describedby="basic-addon3">
 				</div>
 
-				<label for="basic-url">Role</label>
+				<label for="role">Role</label>
 				<div class="input-group">
 				  <span class="input-group-addon" id="basic-addon3"> </span>
-				  <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3">
+				  <input type="text" class="form-control" id="role" aria-describedby="basic-addon3">
 				</div>
 
-				<label for="basic-url">Start Date (DD/MM/YY)</label>
+				<label for="startDate">Start Date (DD/MM/YY)</label>
 				<div class="input-group">
 				  <span class="input-group-addon" id="basic-addon3"> </span>
-				  <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3">
+				  <input type="text" class="form-control" id="startDate" aria-describedby="basic-addon3">
 				</div>
 
-				<label for="basic-url">Monthly Rate</label>
+				<label for="monthlyRate">Monthly Rate</label>
 				<div class="input-group">
 				  <span class="input-group-addon" id="basic-addon3"> </span>
-				  <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3">
+				  <input type="text" class="form-control" id="monthlyRate" aria-describedby="basic-addon3">
 				</div>
 				
-				<input class="btn btn-primary" type="submit" value="Submit">
+				<input class="btn btn-primary" type="submit" id ="submitButton" value="Submit">
 				
   		</div>
 	</div>
 	</div>
 	</div>
-	<script type="text/javascript" src="logic.js"></script>
+	<script type="text/javascript" src="javascript.js"></script>
 </body>
 </html>
