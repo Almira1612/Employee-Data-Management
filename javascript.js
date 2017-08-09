@@ -19,7 +19,7 @@ $("#submitButton").on("click",function(){
 	//user inputs from form
 	var name = $("#employeeName").val().trim();
 	var role = $("#role").val().trim();
-	var startDate = $("#startDate").val().trim();
+	var startDate = moment($("#startDate").val().trim(), "DD/MM/YY").format('L');
 	var monthlyRate = $("#monthlyRate").val().trim();
    
      console.log(name, role, startDate, monthlyRate);
@@ -44,27 +44,28 @@ $("#submitButton").on("click",function(){
         monthlyRate: monthlyRate,
         dateAdded: firebase.database.ServerValue.TIMESTAMP //timestamp for when you hit submit
       });
-
+     
 	//clears user input fields
 	$("#employeeName").val("");
 	$("#role").val("");
 	$("#startDate").val("");
 	$("#monthlyRate").val("");
-
 });
 
 
 //Loads most recently added user to page
   database.ref().orderByChild("dateAdded").limitToLast(1).on("child_added", function(snapshot) {
 
+  	var monthsWorked = moment().diff(moment(snapshot.val().startDate),"months");
+	var totalBilled = monthsWorked * snapshot.val().monthlyRate;
 	//Appends a new row to the table with data entries from most recent entry in Firebase database 
 	$("#EmployeeTable").append(
 	'<tr>' +
 	    '<td>' + snapshot.val().name + '</td>' +
 	    '<td>' + snapshot.val().role +'</td>' +
 	    '<td>' + snapshot.val().startDate + '</td>' +
-	    '<td></td>' +
+	    '<td>' + monthsWorked + '</td>' +
 	    '<td>' + snapshot.val().monthlyRate + '</td>' +
-	    '<td></td>' +
+	    '<td>' + totalBilled + '</td>' + 
 	'</tr>');
   });
